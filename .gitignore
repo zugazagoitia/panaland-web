@@ -107,3 +107,6 @@ modules.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/phpstorm+all,composer
 /config/
+
+/css/common.css
+/css/common.css.map
