@@ -18,13 +18,13 @@ jobs:
         uses: php-actions/composer@v6
 
       - name: Make destination directory for compiled CSS
-        run: mkdir -vp /css
+        run: mkdir -vp css
 
       - name: 🗜️ Compile SCSS
         uses: gha-utilities/sass-build@v0.4.8
         with:
           source: _scss/common.scss
-          destination: /css/common.css
+          destination: css/common.css
 
       - name: Cache
         uses: actions/cache@v2
