@@ -3,7 +3,7 @@ name: CI -> Compose, compile SCSS and deploy
 
 on:
   push:
-    branches: [master,dev]
+    branches: [master]
 concurrency:
   group: deploy
   cancel-in-progress: true
@@ -52,7 +52,7 @@ jobs:
       - name: 📂 RSync
         uses: burnett01/rsync-deployments@5.1
         with:
-          switches: -vzr --delete --exclude=".git/" --exclude="_scss/" --exclude="config/" --exclude=".github/"
+          switches: -vzr --delete --exclude=".git/" --exclude="_scss/" --exclude="config/" --exclude=".github/" --exclude="DOCKER_ENV" --exclude="output.log" --exclude="docker_tag"
           remote_path: ${{ secrets.SSH_REMOTE_DIR }}
           remote_host: ${{ secrets.SSH_SERVER }}
           remote_user: ${{ secrets.SSH_USERNAME }}
