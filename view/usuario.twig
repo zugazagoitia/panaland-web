@@ -1,0 +1,92 @@
+{% extends "layout.twig" %}
+
+{% block titulo %}{{ usuario.username }}{% endblock %}
+
+{% block mainContent %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/94/three.min.js"
+            integrity="sha256-NGC9JEuTWN4GhTj091wctgjzftr+8WNDmw0H8J5YPYE=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/InventivetalentDev/MineRender@1.4.6/dist/skin.min.js"></script>
+
+    <section class="hero is-fullheight-with-navbar">
+
+        <div class="columns" style="height: 100%">
+            <div class="column is-one-quarter py-0" style="height: 100%">
+                <div class="container is-light" style="height: 100%;width: 100%">
+                    <div id="skin_container" style="height: 800px;display: block;margin: 0 auto;"></div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="container title has-text-centered mx-auto my-6">
+                    Datos de {{ usuario.username }} - {{ usuario.uuid }}
+                </div>
+                <div class="container">
+                    <div class="card">
+                        <div class="card-content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <script>
+        function renderSkinShowcase() {
+            var render;
+            var element = $("#skin_container");
+            //element.text("{{ usuario.username }}");
+            console.log("Offsets0:" + element.outerHeight() + " " + element.outerWidth())
+            var skinRender = new SkinRender({
+                autoResize: true,
+                canvas: {
+                    width: element.outerWidth(),
+                    height: element.outerHeight()
+                },
+                render: {
+                    taa: true
+                },
+                controls: {
+                    enabled: true,
+                    zoom: false,
+                    rotate: true,
+                    pan: true
+                },
+                forceContext: true
+            }, element[0]);
+            element.on("skinRender", function (e) {
+                if (e.detail.playerModel) {
+                    e.detail.playerModel.rotation.y += 0.01;
+                    e.detail.playerModel.children[2].rotation.z = -0.1;
+                    e.detail.playerModel.children[3].rotation.z = 0.1;
+                    e.detail.playerModel.children[6].rotation.x = 0.1;
+                }
+            })
+            render = skinRender;
+            (function (skinRender) {
+                let data = {
+                    capeUrl: "https://crafatar.com/capes/{{ usuario.uuid }}",
+                    optifine: true,
+                    username: "{{ usuario.username }}"
+                };
+
+                setTimeout(function () {
+                    skinRender.render(data, function () {
+                        console.log("Removed due to timeout")
+                    })
+                }, 200);
+            })(skinRender);
+        }
+
+        renderSkinShowcase();
+
+    </script>
+{% endblock %}

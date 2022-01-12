@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Head -->
+<head>
+        {% block head %}
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% block stylesheets %}
+        <link rel="stylesheet" href="css/common.css"/>
+        {% endblock %}
+
+                <link href="img/favicon.ico" rel="icon" type="image/x-icon"/>
+
+                <title>{% block titulo %}{% endblock %} - PanaLand</title>
+
+                <script>
+                        function Get(yourUrl) {
+                                var Httpreq = new XMLHttpRequest(); // a new request
+                                Httpreq.open("GET", yourUrl, false);
+                                Httpreq.send(null);
+                                return Httpreq.responseText;
+                        }
+
+                        async function getServerInfo() {
+                                return JSON.parse(Get("https://api.minetools.eu/ping/panaland.zuga.pw/25565"));
+                        }
+
+                        const server_info = getServerInfo();
+                </script>
+        {% endblock %}
+</head>
+<!-- Fin Head -->
+
+<!-- Body -->
+<body class="has-navbar-fixed-top">
+
+{% include 'header.twig' %}
+
+{% include 'navbar.twig' %}
+
+<main>
+        {# Contenido principal sobreescrito por cada template #}
+        {% block mainContent %}{% endblock %}
+</main>
+
+{% block footerScripts %}{% endblock %}
+
+{% include 'footer.twig' %}
+
+</body>
+<!-- Fin Body -->
+</html>

@@ -1,0 +1,120 @@
+<!-- NAVBAR -->
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="./">
+            <img src="https://i.imgur.com/fhk0lqb.png" height="40" style="border: 0;">
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+
+    </div>
+    <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="./#brute-stats">
+                Estadísticas
+            </a>
+
+            <a class="navbar-item" href="./#grid-graphs">
+                Gráficas
+
+            </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    Jugadores
+                </a>
+                <div class="navbar-dropdown">
+                    {% for p in playerList %}
+                        <a class="navbar-item" href="?pag=perfil&user={{ p.username }}">
+                            {{ p.username }}
+                        </a>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <nav class="level">
+                    <div class="level-item ">
+                        <span id="server-status" class="server-status" type="up"></span>
+                    </div>
+                    <div class="level-item ml-4 mr-3">
+                        <p id="server-latency"></p>
+                    </div>
+                    <div class="level-item">
+                        <span id="server-version" class="tag is-dark"></span>
+                    </div>
+                </nav>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</nav>
+<!-- /NAVBAR -->
+
+<script>
+
+    async function f() {
+        let result = await server_info;
+
+        if ('error' in result) {
+            document.getElementById("server-status").setAttribute('type', 'down');
+            document.getElementById("server-version").textContent = result.error;
+        } else {
+            document.getElementById("server-version").textContent = result.version.name;
+            document.getElementById("server-status").setAttribute('type', 'up');
+            let startTime;
+            try {
+                var xhr = new XMLHttpRequest();
+                xhr.open("HEAD", "/" + "?" + Math.random(), false);
+                startTime = performance.now();
+                xhr.send();
+            } catch (e) {
+                //block exception
+            } finally {
+                var endTime = performance.now();
+            }
+            console.log(startTime)
+            console.log(endTime)
+
+            document.getElementById("server-latency").textContent = Math.floor(endTime - startTime) + 'ms';
+        }
+
+    }
+
+    f();
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+
+            // Add a click event on each of them
+            $navbarBurgers.forEach(el => {
+                el.addEventListener('click', () => {
+
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+
+                });
+            });
+        }
+
+    });
+</script>

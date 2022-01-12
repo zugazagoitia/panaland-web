@@ -1,0 +1,567 @@
+{
+  "_readme": [
+    "This file locks the dependencies of your project to a known state",
+    "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+    "This file is @generated automatically"
+  ],
+  "content-hash": "07f853e2f65a086a706c7aef771c9f84",
+  "packages": [
+    {
+      "name": "symfony/deprecation-contracts",
+      "version": "v2.5.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/deprecation-contracts.git",
+        "reference": "6f981ee24cf69ee7ce9736146d1c57c2780598a8"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/6f981ee24cf69ee7ce9736146d1c57c2780598a8",
+        "reference": "6f981ee24cf69ee7ce9736146d1c57c2780598a8",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=7.1"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-main": "2.5-dev"
+        },
+        "thanks": {
+          "name": "symfony/contracts",
+          "url": "https://github.com/symfony/contracts"
+        }
+      },
+      "autoload": {
+        "files": [
+          "function.php"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Nicolas Grekas",
+          "email": "p@tchwork.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "A generic function and convention to trigger deprecation notices",
+      "homepage": "https://symfony.com",
+      "support": {
+        "source": "https://github.com/symfony/deprecation-contracts/tree/v2.5.0"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2021-07-12T14:48:14+00:00"
+    },
+    {
+      "name": "symfony/intl",
+      "version": "v5.4.2",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/intl.git",
+        "reference": "ee6512e06b1307ed61b32d292ecd8ee9c10e034c"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/intl/zipball/ee6512e06b1307ed61b32d292ecd8ee9c10e034c",
+        "reference": "ee6512e06b1307ed61b32d292ecd8ee9c10e034c",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=7.2.5",
+        "symfony/deprecation-contracts": "^2.1|^3",
+        "symfony/polyfill-php80": "^1.16"
+      },
+      "require-dev": {
+        "symfony/filesystem": "^4.4|^5.0|^6.0"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Symfony\\Component\\Intl\\": ""
+        },
+        "classmap": [
+          "Resources/stubs"
+        ],
+        "files": [
+          "Resources/functions.php"
+        ],
+        "exclude-from-classmap": [
+          "/Tests/"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Bernhard Schussek",
+          "email": "bschussek@gmail.com"
+        },
+        {
+          "name": "Eriksen Costa",
+          "email": "eriksen.costa@infranology.com.br"
+        },
+        {
+          "name": "Igor Wiedler",
+          "email": "igor@wiedler.ch"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Provides a PHP replacement layer for the C intl extension that includes additional data from the ICU library",
+      "homepage": "https://symfony.com",
+      "keywords": [
+        "i18n",
+        "icu",
+        "internationalization",
+        "intl",
+        "l10n",
+        "localization"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/intl/tree/v5.4.2"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2021-12-16T21:58:21+00:00"
+    },
+    {
+      "name": "symfony/polyfill-ctype",
+      "version": "v1.24.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/polyfill-ctype.git",
+        "reference": "30885182c981ab175d4d034db0f6f469898070ab"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/30885182c981ab175d4d034db0f6f469898070ab",
+        "reference": "30885182c981ab175d4d034db0f6f469898070ab",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=7.1"
+      },
+      "provide": {
+        "ext-ctype": "*"
+      },
+      "suggest": {
+        "ext-ctype": "For best performance"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-main": "1.23-dev"
+        },
+        "thanks": {
+          "name": "symfony/polyfill",
+          "url": "https://github.com/symfony/polyfill"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Symfony\\Polyfill\\Ctype\\": ""
+        },
+        "files": [
+          "bootstrap.php"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Gert de Pagter",
+          "email": "BackEndTea@gmail.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Symfony polyfill for ctype functions",
+      "homepage": "https://symfony.com",
+      "keywords": [
+        "compatibility",
+        "ctype",
+        "polyfill",
+        "portable"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/polyfill-ctype/tree/v1.24.0"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2021-10-20T20:35:02+00:00"
+    },
+    {
+      "name": "symfony/polyfill-mbstring",
+      "version": "v1.24.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/polyfill-mbstring.git",
+        "reference": "0abb51d2f102e00a4eefcf46ba7fec406d245825"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/0abb51d2f102e00a4eefcf46ba7fec406d245825",
+        "reference": "0abb51d2f102e00a4eefcf46ba7fec406d245825",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=7.1"
+      },
+      "provide": {
+        "ext-mbstring": "*"
+      },
+      "suggest": {
+        "ext-mbstring": "For best performance"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-main": "1.23-dev"
+        },
+        "thanks": {
+          "name": "symfony/polyfill",
+          "url": "https://github.com/symfony/polyfill"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Symfony\\Polyfill\\Mbstring\\": ""
+        },
+        "files": [
+          "bootstrap.php"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Nicolas Grekas",
+          "email": "p@tchwork.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Symfony polyfill for the Mbstring extension",
+      "homepage": "https://symfony.com",
+      "keywords": [
+        "compatibility",
+        "mbstring",
+        "polyfill",
+        "portable",
+        "shim"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.24.0"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2021-11-30T18:21:41+00:00"
+    },
+    {
+      "name": "symfony/polyfill-php80",
+      "version": "v1.24.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/polyfill-php80.git",
+        "reference": "57b712b08eddb97c762a8caa32c84e037892d2e9"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/57b712b08eddb97c762a8caa32c84e037892d2e9",
+        "reference": "57b712b08eddb97c762a8caa32c84e037892d2e9",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=7.1"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-main": "1.23-dev"
+        },
+        "thanks": {
+          "name": "symfony/polyfill",
+          "url": "https://github.com/symfony/polyfill"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Symfony\\Polyfill\\Php80\\": ""
+        },
+        "files": [
+          "bootstrap.php"
+        ],
+        "classmap": [
+          "Resources/stubs"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Ion Bazan",
+          "email": "ion.bazan@gmail.com"
+        },
+        {
+          "name": "Nicolas Grekas",
+          "email": "p@tchwork.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Symfony polyfill backporting some PHP 8.0+ features to lower PHP versions",
+      "homepage": "https://symfony.com",
+      "keywords": [
+        "compatibility",
+        "polyfill",
+        "portable",
+        "shim"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/polyfill-php80/tree/v1.24.0"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2021-09-13T13:58:33+00:00"
+    },
+    {
+      "name": "twig/intl-extra",
+      "version": "v3.3.5",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/twigphp/intl-extra.git",
+        "reference": "8dca6f4c5a00cdd3c43b6bd080f50d32aca33a84"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/twigphp/intl-extra/zipball/8dca6f4c5a00cdd3c43b6bd080f50d32aca33a84",
+        "reference": "8dca6f4c5a00cdd3c43b6bd080f50d32aca33a84",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=7.1.3",
+        "symfony/intl": "^4.4|^5.0|^6.0",
+        "twig/twig": "^2.7|^3.0"
+      },
+      "require-dev": {
+        "symfony/phpunit-bridge": "^4.4.9|^5.0.9|^6.0"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "3.2-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Twig\\Extra\\Intl\\": ""
+        },
+        "exclude-from-classmap": [
+          "/Tests/"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Fabien Potencier",
+          "email": "fabien@symfony.com",
+          "homepage": "http://fabien.potencier.org",
+          "role": "Lead Developer"
+        }
+      ],
+      "description": "A Twig extension for Intl",
+      "homepage": "https://twig.symfony.com",
+      "keywords": [
+        "intl",
+        "twig"
+      ],
+      "support": {
+        "source": "https://github.com/twigphp/intl-extra/tree/v3.3.5"
+      },
+      "funding": [
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/twig/twig",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2022-01-02T10:02:25+00:00"
+    },
+    {
+      "name": "twig/twig",
+      "version": "v3.3.7",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/twigphp/Twig.git",
+        "reference": "8f168c6ffa3ce76d1786b3cd52275424a3fc675b"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/twigphp/Twig/zipball/8f168c6ffa3ce76d1786b3cd52275424a3fc675b",
+        "reference": "8f168c6ffa3ce76d1786b3cd52275424a3fc675b",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=7.2.5",
+        "symfony/polyfill-ctype": "^1.8",
+        "symfony/polyfill-mbstring": "^1.3"
+      },
+      "require-dev": {
+        "psr/container": "^1.0",
+        "symfony/phpunit-bridge": "^4.4.9|^5.0.9|^6.0"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "3.3-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Twig\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "BSD-3-Clause"
+      ],
+      "authors": [
+        {
+          "name": "Fabien Potencier",
+          "email": "fabien@symfony.com",
+          "homepage": "http://fabien.potencier.org",
+          "role": "Lead Developer"
+        },
+        {
+          "name": "Twig Team",
+          "role": "Contributors"
+        },
+        {
+          "name": "Armin Ronacher",
+          "email": "armin.ronacher@active-4.com",
+          "role": "Project Founder"
+        }
+      ],
+      "description": "Twig, the flexible, fast, and secure template language for PHP",
+      "homepage": "https://twig.symfony.com",
+      "keywords": [
+        "templating"
+      ],
+      "support": {
+        "issues": "https://github.com/twigphp/Twig/issues",
+        "source": "https://github.com/twigphp/Twig/tree/v3.3.7"
+      },
+      "funding": [
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/twig/twig",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2022-01-03T21:15:37+00:00"
+    }
+  ],
+  "packages-dev": [],
+  "aliases": [],
+  "minimum-stability": "stable",
+  "stability-flags": [],
+  "prefer-stable": false,
+  "prefer-lowest": false,
+  "platform": [],
+  "platform-dev": [],
+  "plugin-api-version": "2.2.0"
+}

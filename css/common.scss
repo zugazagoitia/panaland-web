@@ -1,0 +1,158 @@
+:root {
+  --background-body: #202b38;
+  --background: #161f27;
+  --background-alt: #1a242f;
+  --selection: #161f27;
+  --text-main: #EBF2FA;
+  --text-bright: #fff;
+  --text-muted: #717880;
+  --links: #75b7cd;
+  --focus: rgba(0, 150, 191, 0.67);
+  --border: #dbdbdb;
+  --code: #ffbe85;
+  --animation-duration: 0.1s;
+  --button-hover: #324759;
+  --scrollbar-thumb: var(--button-hover);
+  --scrollbar-thumb-hover: #141414;
+  --form-placeholder: #a9a9a9;
+  --form-text: #fff;
+  --variable: #d941e2;
+  --highlight: #efdb43;
+}
+
+html {
+  height: 100%;
+}
+
+.card {
+  background-color: var(--background-alt) !important;
+  color: var(--text-main) !important;
+}
+
+
+body {
+  background: var(--background-body);
+  min-height: 100%;
+
+}
+
+
+/** Server status css **/
+.server-status {
+  left: 10px;
+  top: 50%;
+  margin-left: 0px;
+  margin-top: -5px;
+  position: absolute;
+  vertical-align: middle;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.server-status::before,
+.server-status::after {
+  left: 0;
+  top: 50%;
+  margin-left: -1px;
+  margin-top: -6px;
+  position: absolute;
+  vertical-align: middle;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.server-status[type="up"],
+.server-status[type="up"]::before,
+.server-status[type="up"]::after {
+  background: #2ECC71;
+}
+
+.server-status[type="down"],
+.server-status[type="down"]::before,
+.server-status[type="down"]::after {
+  background: #E74C3C;
+}
+
+.server-status[type="slow"],
+.server-status[type="slow"]::before,
+.server-status[type="slow"]::after {
+  background: #F1C40F;
+}
+
+.server-status::before {
+  content: "";
+  animation: bounce 1.5s infinite;
+}
+
+.server-status::after {
+  content: "";
+  animation: bounce 1.5s -0.4s infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    -webkit-transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    -webkit-transform: scale(2);
+    opacity: 0;
+  }
+}
+
+
+$table-color: var(--text-main);
+$table-row-active-color: var(--text-main);
+$table-cell-heading-color: var(--text-main);
+$table-head-cell-color: var(--text-main);
+$table-foot-cell-color: var(--text-main);
+
+$table-background-color: var(--background-body);
+
+$navbar-background-color: var(--background-alt);
+$navbar-item-color: var(--text-bright);
+$navbar-item-img-max-height: 2.25rem;
+$navbar-item-hover-color: var(--text-bright);
+$navbar-item-active-color: var(--background);
+$navbar-item-hover-background-color: var(--background);
+$navbar-dropdown-background-color: var(--background);
+
+$title-color: var(--text-main);
+
+$link: var(--links);
+
+$strong-color: var(--text-bright);
+
+@charset "utf-8";
+@import "sass/base/all";
+@import "sass/components/navbar";
+@import "sass/components/card";
+@import "sass/components/level";
+@import "sass/layout/hero";
+@import "sass/layout/section";
+@import "sass/elements/table";
+@import "sass/elements/title";
+@import "sass/elements/container";
+@import "sass/elements/tag";
+@import "sass/elements/box";
+@import "sass/grid/all";
+@import "sass/utilities/all";
+@import "sass/helpers/all";
+@import "sass/divider/divider";

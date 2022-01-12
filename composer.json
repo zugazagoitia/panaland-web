@@ -1,0 +1,15 @@
+{
+  "name": "cadiducho/stats-web",
+  "type": "project",
+  "require": {
+    "twig/twig": "^3.3",
+    "twig/intl-extra": "^3.3"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Cadiducho",
+      "email": "cadiducho@gmail.com"
+    }
+  ]
+}
