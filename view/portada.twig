@@ -40,51 +40,7 @@
                             </div>
                         </div>
                     </div>
-                    <script>
-                        async function displayServerInfo() {
-                            let result = await server_info;
 
-                            console.log(result);
-                            if ('error' in result) {
-                                document.getElementById("portada-server-online").textContent = "Offline";
-                                document.getElementById("portada-server-version").textContent = "desconocida";
-
-                            } else {
-                                document.getElementById("portada-server-online").textContent = "Online";
-                                document.getElementById("portada-server-version").textContent = result.version.name;
-                                document.getElementById("portada-server-numplayers").textContent = result.players.online + '/' + result.players.max;
-
-
-                                for (let p of result.players.sample) {
-                                    let uuid = p.id.replaceAll('-', '');
-                                    let anchorElement = document.createElement('a');
-                                    let divElement = document.createElement('div');
-                                    let imgElement = document.createElement('img');
-                                    anchorElement.classList.add("level-item", "has-text-centered");
-                                    anchorElement.setAttribute("href", '?pag=perfil&user=' + p.name);
-
-                                    imgElement.setAttribute('src', "https://crafatar.com/renders/head/" + uuid + "?size=150&overlay&default=MHF_Steve");
-                                    imgElement.setAttribute('width', '80px');
-                                    imgElement.setAttribute('title', p.name);
-
-                                    let username = document.createElement('p');
-                                    username.innerHTML = p.name;
-                                    username.classList.add("heading");
-
-                                    divElement.appendChild(imgElement);
-                                    divElement.appendChild(username);
-
-                                    anchorElement.appendChild(divElement);
-
-                                    document.getElementById("portada-server-images").appendChild(anchorElement);
-                                }
-                            }
-
-
-                        }
-
-                        displayServerInfo();
-                    </script>
                 </div>
 
             </nav>
@@ -100,23 +56,33 @@
             </div>
             <div class="table-responsive table-container">
                 <table class="table my-bg-color my-text-color mx-auto">
-                    <thead>
-                    <tr>
-                        <th>Imagen</th>
-                        <th>Usuario</th>
-                        <th><abbr title="Muertes">M</abbr></th>
-                        <th><abbr title="Kills">K</abbr></th>
-                        <th><abbr title="Tiempo jugado (Segundos)">Playtime </abbr></th>
-                        <th><abbr title="Bloques rotos">B. Rotos</abbr></th>
-                        <th><abbr title="Bloques puestos">B. Puestos</abbr></th>
-                        <th><abbr title="Items crafteados">I. Craft</abbr></th>
-                        <th><abbr title="Items droppeados">I. Dropped</abbr></th>
-                        <th><abbr title="Items recogidos">I. Recogidos</abbr></th>
-                        <th><abbr title="Herramientas rotas">Tools Rotas</abbr></th>
-                        <th>Comida consumida</th>
-                        <th>Última Conexión</th>
 
-                    </tr>
+                    <colgroup>
+                        <col span="2" style="border-right: 1px solid;">
+                        <col span="2">
+                        <col>
+                        <col span="2">
+                        <col span="3">
+                        <col>
+                        <col>
+                        <col style="border-left: 1px solid;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Usuario</th>
+                            <th><abbr title="Muertes">M</abbr></th>
+                            <th><abbr title="Kills">K</abbr></th>
+                            <th><abbr title="Tiempo jugado (Segundos)">Playtime </abbr></th>
+                            <th><abbr title="Bloques rotos">B. Rotos</abbr></th>
+                            <th><abbr title="Bloques puestos">B. Puestos</abbr></th>
+                            <th><abbr title="Items crafteados">I. Craft</abbr></th>
+                            <th><abbr title="Items droppeados">I. Dropped</abbr></th>
+                            <th><abbr title="Items recogidos">I. Recogidos</abbr></th>
+                            <th><abbr title="Herramientas rotas">Tools Rotas</abbr></th>
+                            <th><abbr title="Comida consumida">Comida cons.</abbr></th>
+                            <th>Última Conexión</th>
+                        </tr>
                     </thead>
                     <tbody>
 
@@ -193,36 +159,35 @@
 
                     </tbody>
                     <tfoot>
-                    <tr>
-                        <td></td>
-                        <td><b>Máximo</b></td>
-                        <td>{{ maxDeaths }}</td>
-                        <td>{{ maxKill }}</td>
-                        <td>{{ maxPlaytime|secondsToTime }}</td>
-                        <td>{{ maxBreak }}</td>
-                        <td>{{ maxPlace }}</td>
-                        <td>{{ maxCrafted }}</td>
-                        <td>{{ maxDropped }}</td>
-                        <td>{{ maxPickedUp }}</td>
-                        <td>{{ maxBroken }}</td>
-                        <td>{{ maxFood }}</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><b>Total</b></td>
-                        <td>{{ totalDeaths }}</td>
-                        <td>{{ totalKill }}</td>
-                        <td>{{ totalPlaytime|secondsToTime }}</td>
-                        <td>{{ totalBreak }}</td>
-                        <td>{{ totalPlace }}</td>
-                        <td>{{ totalCrafted }}</td>
-                        <td>{{ totalDropped }}</td>
-                        <td>{{ totalPickedUp }}</td>
-                        <td>{{ totalBroken }}</td>
-                        <td>{{ totalFood }}</td>
-                        <td></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td><b>Máximo</b></td>
+                            <td>{{ maxDeaths }}</td>
+                            <td>{{ maxKill }}</td>
+                            <td>{{ maxPlaytime|secondsToTime }}</td>
+                            <td>{{ maxBreak }}</td>
+                            <td>{{ maxPlace }}</td>
+                            <td>{{ maxCrafted }}</td>
+                            <td>{{ maxDropped }}</td>
+                            <td>{{ maxPickedUp }}</td>
+                            <td>{{ maxBroken }}</td>
+                            <td>{{ maxFood }}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><b>Total</b></td>
+                            <td>{{ totalDeaths }}</td>
+                            <td>{{ totalKill }}</td>
+                            <td>{{ totalPlaytime|secondsToTime }}</td>
+                            <td>{{ totalBreak }}</td>
+                            <td>{{ totalPlace }}</td>
+                            <td>{{ totalCrafted }}</td>
+                            <td>{{ totalDropped }}</td>
+                            <td>{{ totalPickedUp }}</td>
+                            <td>{{ totalBroken }}</td>
+                            <td>{{ totalFood }}</td>
+                        </tr>
                     </tfoot>
                 </table>
             </div>
@@ -234,44 +199,8 @@
         <div class="is-divider " style="opacity: 0.3"></div>
     </div>
 
-    <!-- JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"
-            integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors"></script>
-    <!-- /JS -->
 
-    <!-- SETUP CHART.JS -->
-    <script>
-        const autocolors = window['chartjs-plugin-autocolors'];
-
-        Chart.register(autocolors);
-
-        Chart.defaults.color = getComputedStyle(document.documentElement).getPropertyValue('--text-main');
-        const colors = ["#6ada56", "#31d69a", "#2d8aa9", "#972397",
-            "#79524f", "#683a6e", "#37354a", "#d196d0",
-            "#a38489", "#786d7f"];
-        const inverseColors = ["#786d7f", "#a38489", "#d196d0",
-            "#37354a", "#683a6e", "#79524f", "#972397",
-            "#2d8aa9", "#31d69a", "#6ada56"];
-        const patterns = pattern.generate(colors);
-        const alt_patterns = pattern.generate(inverseColors);
-
-        const dailyStats = JSON.parse('{{ dailyStats | json_encode | raw }}');
-        console.log("Bloques rotos el " + dailyStats[0].date + ": " + dailyStats[0].block_break);
-
-        const parsedJSON = JSON.parse('{{ players|json_encode|e('js') }}');
-        const names = [];
-        for (p in parsedJSON) {
-            names.push(parsedJSON[p].username);
-        }
-
-
-    </script>
-    <!-- /SETUP CHART.JS -->
-
+    <!-- GRAPHS -->
     <section class="section" id="grid-graphs">
         <div class="container">
 
@@ -282,79 +211,7 @@
 
 
             <div class="columns is-multiline">
-                <div class="column is-one-third">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="content">
-                                <p class="has-text-centered is-size-4 mb-2">Muertes por Jugador</p>
 
-                                <canvas id="muertesPorJugador" width="200" height="200"></canvas>
-                                <script>
-                                    const chart1 = document.getElementById('muertesPorJugador');
-
-                                    var deaths = [];
-                                    for (p in parsedJSON) {
-                                        deaths.push(parsedJSON[p].death);
-                                    }
-                                    var kills = [];
-                                    for (p in parsedJSON) {
-                                        kills.push(parsedJSON[p].kill);
-                                    }
-
-                                    const imagesURL = [];
-                                    for (p in parsedJSON) {
-                                        imagesURL.push({
-                                            width: 20,
-                                            height: 20,
-                                            src: 'https://crafatar.com/renders/head/' + parsedJSON[p].uuid + '?size=150&amp;overlay&amp;default=MHF_Steve'
-                                        });
-                                    }
-
-                                    async function createchart1() {
-                                        new Chart(chart1, {
-                                            type: 'bar',
-                                            data: {
-                                                labels: names,
-                                                datasets: [{
-                                                    label: 'Muertes',
-                                                    data: deaths,
-                                                    backgroundColor: patterns[0],
-                                                    borderColor: patterns[0],
-                                                    borderWidth: 1,
-                                                    yAxisID: 'y'
-                                                }, {
-                                                    label: 'Kills',
-                                                    data: kills,
-                                                    backgroundColor: patterns[2],
-                                                    borderColor: patterns[2],
-                                                    borderWidth: 1,
-                                                    yAxisID: 'y1',
-                                                }
-                                                ]
-                                            },
-                                            options: {
-                                                scales: {
-                                                    y: {
-                                                        type: 'linear',
-                                                        display: true,
-                                                        position: 'left',
-                                                    },
-                                                    y1: {
-                                                        type: 'linear',
-                                                        display: true,
-                                                        position: 'right',
-                                                    },
-                                                }
-                                            }
-                                        })
-                                    }
-
-                                    const muertesPorJugador = createchart1();
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="column is-one-quarter">
                     <div class="card">
                         <div class="card-content">
@@ -362,36 +219,7 @@
                                 <p class="has-text-centered is-size-4 mb-2">Tiempo Jugado</p>
                                 <p id="total-time" class="has-text-centered is-size-6"></p>
                                 <canvas id="tiempoJugado" width="400" height="400"></canvas>
-                                <script>
-                                    const chart2 = document.getElementById('tiempoJugado');
 
-                                    var tiempo = [];
-                                    for (p in parsedJSON) {
-                                        tiempo.push(parseInt((parsedJSON[p].playtime) / 3600).toFixed(2));
-                                    }
-
-                                    var total = tiempo.reduce((a, b) => parseInt(a) + parseInt(b), 0);
-
-                                    const tiempoTotal = document.getElementById('total-time').innerText = "Total: {{ totalPlaytime|secondsToTime }}";
-
-                                    async function createchart2() {
-                                        return new Chart(chart2, {
-                                            type: 'pie',
-                                            data: {
-                                                labels: names,
-                                                datasets: [{
-                                                    label: 'Muertes por Jugador',
-                                                    data: tiempo,
-                                                    backgroundColor: patterns,
-                                                    borderColor: patterns,
-                                                    borderWidth: 1
-                                                }]
-                                            }
-                                        })
-                                    }
-
-                                    const tiempoJugado = createchart2();
-                                </script>
                             </div>
                         </div>
                     </div>
@@ -409,75 +237,35 @@
                                     <canvas id="evBloquesRotos" style="width:100%;height:100%;"></canvas>
                                 </div>
 
-                                <script>
-                                    const chart3 = document.getElementById('evBloquesRotos');
-                                    const parsedDailyJSON = JSON.parse('{{ dailyStats|json_encode|e('js') }}');
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-one-third">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="content">
+                                <p class="has-text-centered is-size-4 mb-2">Muertes por Jugador</p>
 
-                                    const temparr = [];
-                                    for (d in parsedDailyJSON) {
-                                        temparr.push(parsedDailyJSON[d]);
-                                    }
-                                    const ordered = temparr.sort(function (a, b) {
-                                        return a.id - b.id;
-                                    });
+                                <canvas id="muertesPorJugador" width="200" height="200"></canvas>
 
-                                    const broken = [];
-                                    const placed = [];
-                                    const dates = [];
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-three-fifths">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="content" style="height: 400px;width: available">
+                                <div style="width:100%;height:10%;">
+                                    <p class="has-text-centered is-size-4 mb-2">Evolución tiempo jugado</p>
+                                    <p id="total-time" class="has-text-centered is-size-6"></p>
+                                </div>
 
-                                    for (item in ordered) {
-                                        broken.push(ordered[item].block_break);
-                                        placed.push(ordered[item].block_place);
-                                        var tmpdate = new Date(ordered[item].date);
-                                        dates.push(tmpdate.getDate() + "/" + (tmpdate.getMonth() + 1));
-                                    }
+                                <div style="width:100%;height:90%;">
+                                    <canvas id="evTiempoJugado" style="width:100%;height:100%;"></canvas>
+                                </div>
 
-                                    async function createchart3() {
-                                        return new Chart(chart3, {
-                                            type: 'line',
-                                            data: {
-                                                labels: dates,
-                                                datasets: [{
-                                                    label: 'Bloques puestos',
-                                                    data: placed,
-                                                    fill: true,
-                                                    backgroundColor: patterns[0],
-                                                    borderColor: colors[6],
-                                                    tension: 0.1,
-                                                    yAxisID: 'y'
-
-                                                }, {
-                                                    label: 'Bloques rotos',
-                                                    data: broken,
-                                                    fill: true,
-                                                    backgroundColor: patterns[2],
-                                                    borderColor: colors[6],
-                                                    tension: 0.1,
-                                                    yAxisID: 'y1'
-                                                }]
-                                            },
-                                            options: {
-                                                responsive: true,
-                                                maintainAspectRatio: false,
-                                                scales: {
-                                                    y: {
-                                                        type: 'linear',
-                                                        display: true,
-                                                        position: 'left',
-                                                    },
-                                                    y1: {
-                                                        type: 'linear',
-                                                        display: true,
-                                                        position: 'right',
-                                                    },
-                                                }
-                                            }
-                                        })
-                                    }
-
-
-                                    const evBloques = createchart3();
-                                </script>
                             </div>
                         </div>
                     </div>
@@ -488,4 +276,39 @@
         </div>
     </section>
 
+    <!-- JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"
+            integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.min.js"></script>
+    <!-- /JS -->
+
+    <script src="js/functions.js"></script>
+    <script>
+
+        displayServerInfo();
+
+        const parsedDailyJSON = JSON.parse('{{ dailyStats | json_encode | e('js') }}');
+
+        const parsedJSON = JSON.parse('{{ players|json_encode|e('js') }}');
+
+        const orderedDailyStats = orderDailyStats(parsedDailyJSON);
+
+        const chart1 = document.getElementById('muertesPorJugador');
+
+        const chart2 = document.getElementById('tiempoJugado');
+
+        const chart3 = document.getElementById('evBloquesRotos');
+
+        const chart4 = document.getElementById('evTiempoJugado');
+
+        let muertesPorJugador = createKillsDeathsChart(chart1,killsDeathsChartData(parsedJSON),algorithmicColors,inverseColors);
+
+        let tiempoJugado = createPlaytimeChart(chart2,playtimeChartData(parsedJSON,"{{ totalPlaytime|secondsToTime }}"),algorithmicColors,inverseColors);
+
+        let evBloquesChart = createBrokenBlocksChart(chart3,brokenBlocksChartData(orderedDailyStats),algorithmicColors,colors);
+
+        let evPlaytimeChart = createPlayedTimeEvolutionChart(chart4,playedTimeEvolutionChartData(parsedDailyJSON),algorithmicColors[1],colors[6]);
+    </script>
 {% endblock %}
