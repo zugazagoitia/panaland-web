@@ -27,6 +27,10 @@ jobs:
           source: _scss/common.scss
           destination: css/common.css
 
+      # Minify Files
+      - name: 🔨 Compress Web files
+        uses: zugazagoitia/minify-js@v0.4
+
       - name: Cache
         uses: actions/cache@v2
         with:
