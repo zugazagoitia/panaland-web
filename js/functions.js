@@ -56,7 +56,6 @@ function orderDailyStats(parsedDailyJSON){
 async function displayServerInfo() {
     let result = await server_info;
 
-    console.log(result);
     if ('error' in result) {
         document.getElementById("portada-server-online").textContent = "Offline";
         document.getElementById("portada-server-version").textContent = "desconocida";
@@ -348,7 +347,7 @@ async function createBrokenBlocksChart(chart,chartData,backgroundColors,borderCo
                 label: 'Bloques puestos',
                 data: placed,
                 fill: true,
-                backgroundColor: backgroundColors[0],
+                backgroundColor: addAlpha(backgroundColors[0], 0.6),
                 borderColor: borderColors[6],
                 tension: 0.1,
                 yAxisID: 'y'
@@ -357,7 +356,7 @@ async function createBrokenBlocksChart(chart,chartData,backgroundColors,borderCo
                 label: 'Bloques rotos',
                 data: broken,
                 fill: true,
-                backgroundColor: backgroundColors[2],
+                backgroundColor: addAlpha(backgroundColors[2], 0.6),
                 borderColor: borderColors[6],
                 tension: 0.1,
                 yAxisID: 'y1'
@@ -473,4 +472,9 @@ async function createPlayedTimeEvolutionChart(chart, chartData, backgroundColor,
             animation: animation
         }
     })
+}
+
+const addAlpha = (color, alpha) => {
+    const opacity = Math.round(Math.min(Math.max(alpha || 1, 0), 1) * 255);
+    return color + opacity.toString(16).toUpperCase();
 }
