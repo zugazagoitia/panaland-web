@@ -1,3 +1,4 @@
+@charset "utf-8";
 :root {
   --background-body: #202b38;
   --background: #161f27;
@@ -117,8 +118,6 @@ body {
   }
 }
 
-
-
 $table-color: var(--text-main);
 $table-row-active-color: var(--text-main);
 $table-cell-heading-color: var(--text-main);
@@ -135,19 +134,22 @@ $navbar-item-active-color: var(--background);
 $navbar-item-hover-background-color: var(--background);
 $navbar-dropdown-background-color: var(--background);
 
-$title-color: var(--text-main);
+$title-color: var(--text-bright);
+$subtitle-color: var(--text-main);
 
 $link: var(--links);
 
 $strong-color: var(--text-bright);
 
-@charset "utf-8";
+$footer-background-color: var(--background-alt);
+
 @import "sass/base/all";
 @import "sass/components/navbar";
 @import "sass/components/card";
 @import "sass/components/level";
 @import "sass/layout/hero";
 @import "sass/layout/section";
+@import "sass/layout/footer";
 @import "sass/elements/table";
 @import "sass/elements/title";
 @import "sass/elements/container";

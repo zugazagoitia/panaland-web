@@ -32,6 +32,17 @@ const inverseColors = ["#786d7f", "#a38489", "#d196d0",
 const patterns = pattern.generate(colors);
 const alt_patterns = pattern.generate(inverseColors);
 
+function hexToRGB(hex, alpha) {
+    let r = parseInt(hex.slice(1, 3), 16),
+        g = parseInt(hex.slice(3, 5), 16),
+        b = parseInt(hex.slice(5, 7), 16);
+
+    if (alpha) {
+        return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
+    } else {
+        return "rgb(" + r + ", " + g + ", " + b + ")";
+    }
+}
 
 
 /**
